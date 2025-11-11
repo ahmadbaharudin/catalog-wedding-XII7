@@ -1,0 +1,282 @@
+/* ========== BASE STYLE (mobile first) ========== */
+:root {
+  --pink: #d17b88;
+  --pink-dark: #b96070;
+  --bg: #fff8fa;
+  --text: #2a2a2a;
+  --muted: #777;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== HEADER ========== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.logo {
+  color: var(--pink);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--pink);
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 10px 16px;
+}
+
+.menu.show {
+  display: flex;
+}
+
+.menu a {
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f3f3;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.menu a:hover {
+  color: var(--pink);
+}
+
+/* ========== HERO ========== */
+.hero {
+  background: url('https://images.unsplash.com/photo-1529634892581-3e20cb6dfb87?auto=format&fit=crop&w=800&q=80')
+              center/cover no-repeat;
+  min-height: 65vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+}
+
+.hero h1 {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--pink-dark);
+}
+
+/* ========== SECTION BASE ========== */
+section {
+  padding: 40px 18px;
+}
+
+h2.title {
+  text-align: center;
+  color: var(--pink);
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+p.subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+/* ========== KATEGORI ========== */
+.categories {
+  display: grid;
+  gap: 12px;
+}
+
+.cat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 12px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cat .icon {
+  background: #fff0f4;
+  color: var(--pink);
+  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.cat h4 {
+  font-size: 1rem;
+}
+
+/* ========== VENDOR ========== */
+.vendors {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.card img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.card .body {
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ========== GALERI ========== */
+.gallery {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* ========== KONTAK ========== */
+form {
+  background: #fff;
+  padding: 18px;
+  border-radius: var(--radius);
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input, textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+small {
+  color: var(--muted);
+}
+
+.contact-info {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+}
