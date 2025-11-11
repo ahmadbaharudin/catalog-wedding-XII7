@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <title>Wedding Catalog Mobile</title>
-    <link rel="stylesheet" href="style.css">
   <style>
-    /* ========== BASE STYLE (mobile first) ========== */
     :root {
       --pink: #d17b88;
       --pink-dark: #b96070;
@@ -22,12 +20,13 @@
       color: var(--text);
       line-height: 1.5;
       font-size: 15px;
+      scroll-behavior: smooth;
     }
 
     img {max-width: 100%; border-radius: var(--radius);}
     a {text-decoration: none; color: inherit;}
 
-    /* ========== HEADER ========== */
+    /* ===== HEADER ===== */
     header {
       position: sticky; top: 0; z-index: 10;
       background: white;
@@ -66,10 +65,9 @@
       color: var(--text);
       font-weight: 500;
     }
-
     .menu a:hover {color: var(--pink);}
 
-    /* ========== HERO ========== */
+    /* ===== HERO ===== */
     .hero {
       background: url('https://images.unsplash.com/photo-1529634892581-3e20cb6dfb87?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
       min-height: 65vh;
@@ -81,28 +79,17 @@
       color: white;
       padding: 0 20px;
     }
-
     .hero::before {
       content: "";
       position: absolute; inset: 0;
       background: rgba(0,0,0,0.5);
     }
-
     .hero-content {
       position: relative; z-index: 2;
       max-width: 400px;
     }
-
-    .hero h1 {
-      font-size: 1.7rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
-
+    .hero h1 {font-size: 1.7rem; margin-bottom: 10px;}
+    .hero p {font-size: 0.95rem; margin-bottom: 20px;}
     .btn {
       display: inline-block;
       background: var(--pink);
@@ -112,10 +99,9 @@
       font-weight: 600;
       transition: 0.3s;
     }
-
     .btn:hover {background: var(--pink-dark);}
 
-    /* ========== SECTION BASE ========== */
+    /* ===== SECTION BASE ===== */
     section {padding: 40px 18px;}
     h2.title {
       text-align: center;
@@ -130,37 +116,29 @@
       margin-bottom: 25px;
     }
 
-    /* ========== KATEGORI ========== */
-    .categories {
-      display: grid;
-      gap: 12px;
-    }
+    /* ===== KATEGORI ===== */
+    .categories {display: grid; gap: 12px;}
     .cat {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 12px;
       background: #fff;
       padding: 12px;
       border-radius: var(--radius);
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s;
     }
+    .cat:hover {transform: scale(1.02);}
     .cat .icon {
       background: #fff0f4;
       color: var(--pink);
       font-size: 22px;
-      width: 42px;
-      height: 42px;
+      width: 42px; height: 42px;
       border-radius: 10px;
-      display: grid;
-      place-items: center;
+      display: grid; place-items: center;
     }
-    .cat h4 {font-size: 1rem;}
 
-    /* ========== VENDOR ========== */
-    .vendors {
-      display: grid;
-      gap: 16px;
-    }
+    /* ===== VENDOR ===== */
+    .vendors {display: grid; gap: 16px;}
     .card {
       background: #fff;
       border-radius: var(--radius);
@@ -172,7 +150,7 @@
     .card h3 {font-size: 1.1rem; margin-bottom: 4px;}
     .meta {color: var(--muted); font-size: 0.85rem;}
 
-    /* ========== GALERI ========== */
+    /* ===== GALERI ===== */
     .gallery {
       display: grid;
       gap: 10px;
@@ -185,7 +163,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    /* ========== KONTAK ========== */
+    /* ===== KONTAK ===== */
     form {
       background: #fff;
       padding: 18px;
@@ -205,7 +183,6 @@
     }
     textarea {resize: vertical; min-height: 100px;}
     small {color: var(--muted);}
-
     .contact-info {
       text-align: center;
       color: var(--muted);
@@ -213,13 +190,22 @@
       font-size: 0.9rem;
     }
 
-    /* ========== FOOTER ========== */
+    /* ===== FOOTER ===== */
     footer {
       background: #111;
       color: #ccc;
       text-align: center;
       padding: 16px;
       font-size: 0.85rem;
+    }
+
+    /* highlight target saat auto-scroll */
+    .highlight {
+      animation: glow 1s ease-in-out;
+    }
+    @keyframes glow {
+      0% {background-color: rgba(209,123,136,0.1);}
+      100% {background-color: transparent;}
     }
   </style>
 </head>
@@ -252,13 +238,13 @@
   <!-- KATEGORI -->
   <section id="kategori">
     <h2 class="title">Kategori Utama</h2>
-    <p class="subtitle">Semua kebutuhan pernikahan dalam satu tempat.</p>
+    <p class="subtitle">Klik salah satu kategori untuk langsung ke bagian tujuan.</p>
     <div class="categories">
-      <div class="cat"><div class="icon">📸</div><h4>Fotografi & Video</h4></div>
-      <div class="cat"><div class="icon">💐</div><h4>Dekorasi</h4></div>
-      <div class="cat"><div class="icon">👗</div><h4>Busana & Makeup</h4></div>
-      <div class="cat"><div class="icon">🍽️</div><h4>Catering</h4></div>
-      <div class="cat"><div class="icon">🏛️</div><h4>Venue</h4></div>
+      <div class="cat" data-target="vendor"><div class="icon">📸</div><h4>Fotografi & Video</h4></div>
+      <div class="cat" data-target="vendor"><div class="icon">💐</div><h4>Dekorasi</h4></div>
+      <div class="cat" data-target="vendor"><div class="icon">👗</div><h4>Busana & Makeup</h4></div>
+      <div class="cat" data-target="vendor"><div class="icon">🍽️</div><h4>Catering</h4></div>
+      <div class="cat" data-target="galeri"><div class="icon">🏛️</div><h4>Venue / Galeri</h4></div>
     </div>
   </section>
 
@@ -299,7 +285,7 @@
   <!-- KONTAK -->
   <section id="kontak">
     <h2 class="title">Hubungi Kami</h2>
-    <p class="subtitle">Butuh rekomendasi vendor? Tulis pesan di bawah ini.</p>
+    <p class="subtitle">Butuh rekomendasi vendor? Kirim pesan di bawah ini.</p>
     <form onsubmit="sendMsg(event)">
       <label>Nama</label>
       <input required placeholder="Nama lengkap">
@@ -318,10 +304,26 @@
 
   <!-- SCRIPT -->
   <script>
+    // Menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const menu = document.getElementById('menu');
     menuBtn.addEventListener('click',()=>menu.classList.toggle('show'));
 
+    // Auto-scroll ke target section
+    const categories = document.querySelectorAll('.cat');
+    categories.forEach(cat => {
+      cat.addEventListener('click', () => {
+        const targetId = cat.dataset.target;
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.classList.add('highlight');
+          setTimeout(() => target.classList.remove('highlight'), 1000);
+        }
+      });
+    });
+
+    // Simulasi kirim pesan
     function sendMsg(e){
       e.preventDefault();
       const info=document.getElementById('formInfo');
@@ -332,4 +334,3 @@
   </script>
 </body>
 </html>
-
